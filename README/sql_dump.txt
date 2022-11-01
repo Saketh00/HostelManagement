@@ -1,0 +1,71 @@
+<-- Application Table -->
+
+CREATE TABLE `application` (
+  `Application_id` int(100) NOT NULL,
+  `Student_id` varchar(255) NOT NULL,
+  `Hostel_id` int(10) NOT NULL,
+  `Application_status` tinyint(1) DEFAULT NULL,
+  `Room_No` int(10) DEFAULT NULL,
+  `Message` varchar(255) DEFAULT NULL
+);
+
+<-- Hostel Table -->
+
+CREATE TABLE `hostel` (
+  `hostel_id` int(10) NOT NULL,
+  `hostel_name` varchar(255) NOT NULL,
+  `available_rooms` varchar(255) DEFAULT NULL,
+  `total_rooms` varchar(255) DEFAULT NULL,
+  `students_present` varchar(255) DEFAULT NULL
+);
+
+<-- Hostel Manager Table -->
+
+CREATE TABLE `hostel_manager` (
+  `hm_id` int(10) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `phone_no` varchar(255) NOT NULL,
+  `h_id` int(10) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `isadmin` tinyint(1) DEFAULT 0
+);
+
+<-- Message Table -->
+
+CREATE TABLE `message` (
+  `msg_id` int(10) NOT NULL,
+  `sender_id` varchar(255) DEFAULT NULL,
+  `receiver_id` varchar(255) DEFAULT NULL,
+  `hostel_id` int(10) DEFAULT NULL,
+  `subject_h` varchar(255) DEFAULT NULL,
+  `message` varchar(255) DEFAULT NULL,
+  `msg_date` varchar(255) DEFAULT NULL,
+  `msg_time` varchar(255) DEFAULT NULL
+);
+
+<-- Room Table -->
+
+CREATE TABLE `room` (
+  `room_id` int(10) NOT NULL,
+  `h_id` int(10) NOT NULL,
+  `room_no` int(10) NOT NULL,
+  `allocated` tinyint(1) DEFAULT 0
+);
+
+<-- Student Table -->
+
+CREATE TABLE `student` (
+  `s_id` varchar(255) NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `phone_no` varchar(13) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `year` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `h_id` int(10) DEFAULT NULL,
+  `room_id` int(10) DEFAULT NULL
+);
+
